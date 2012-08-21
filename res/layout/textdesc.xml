@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical" android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+	<TextView android:id="@+id/activityLabel"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:visibility="gone"
+		android:text="Activities Exported By Package:">
+	</TextView>
+	<Spinner android:id="@+id/activities" android:visibility="gone"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+	</Spinner>
+	<LinearLayout android:orientation="horizontal"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<Button android:id="@+id/startActivity"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:visibility="gone"
+			android:text="Start Activity">
+		</Button>
+		<Button android:id="@+id/viewManifest"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:visibility="gone"
+			android:text="See Manifest">
+		</Button>
+		<Button android:id="@+id/viewSystem"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:visibility="gone"
+			android:text="System View">
+		</Button>
+	</LinearLayout>
+	<ScrollView android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+		<TextView android:id="@+id/output"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:text="" />
+	</ScrollView>
+
+</LinearLayout>
