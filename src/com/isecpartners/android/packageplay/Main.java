@@ -62,8 +62,7 @@ public class Main extends Activity {
 				android.R.layout.simple_list_item_1, mPackageNames));
 
 		mPkgs.setOnItemClickListener(new OnItemClickListener() {
-			@SuppressWarnings("unchecked")
-			@Override
+
 			public void onItemClick(AdapterView<?> arg0, View v, int pos,
 					long rowId) {
 				Intent i = new Intent();
@@ -83,6 +82,7 @@ public class Main extends Activity {
 				i.putExtra("pkgs", l);
 
 				startActivity(i);
+				
 			}
 		});
 	}
