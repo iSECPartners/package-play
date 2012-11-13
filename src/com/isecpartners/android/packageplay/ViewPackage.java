@@ -12,6 +12,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -102,9 +103,16 @@ public class ViewPackage extends Activity {
 		});
 		mSystemViewButton.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				Intent i = new Intent(Intent.ACTION_VIEW);
+                /*
+                 * Note: used to be "com.android.settings.InstalledAppDetails".
+                 * The new way is to pass in a package URL.  I'm keeping the old
+                 * putExtra() for now in case it helps backwards compat.  I don't
+                 * know which older version this works with, but it probably fails
+                 * with some very old androids.  How important is backwards compat? -TimN
+                 */
+				Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("package:" + mPkgName));
 				i.setClassName("com.android.settings",
-						"com.android.settings.InstalledAppDetails");
+						"com.android.settings.applications.InstalledAppDetails");
 				i.putExtra("com.android.settings.ApplicationPkgName", mPkgName);
 				startActivity(i);
 			}
