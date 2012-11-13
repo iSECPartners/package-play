@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -106,15 +107,22 @@ public class ViewPackage extends Activity {
                 /*
                  * Note: used to be "com.android.settings.InstalledAppDetails".
                  * The new way is to pass in a package URL.  I'm keeping the old
-                 * putExtra() for now in case it helps backwards compat.  I don't
-                 * know which older version this works with, but it probably fails
-                 * with some very old androids.  How important is backwards compat? -TimN
+                 * putExtra() for now in case it helps backwards compat. 
                  */
-				Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("package:" + mPkgName));
-				i.setClassName("com.android.settings",
-						"com.android.settings.applications.InstalledAppDetails");
-				i.putExtra("com.android.settings.ApplicationPkgName", mPkgName);
-				startActivity(i);
+                try {
+				    Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse("package:" + mPkgName));
+				    i.setClassName("com.android.settings",
+				    		"com.android.settings.applications.InstalledAppDetails");
+				    i.putExtra("com.android.settings.ApplicationPkgName", mPkgName);
+				    startActivity(i);
+                } catch(ActivityNotFoundException e) {
+                    /* for very old android, try the old way... */
+				    Intent i = new Intent(Intent.ACTION_VIEW);
+				    i.setClassName("com.android.settings",
+				    		"com.android.settings.InstalledAppDetails");
+				    i.putExtra("com.android.settings.ApplicationPkgName", mPkgName);
+				    startActivity(i);
+                }
 			}
 		});
 
