@@ -12,5 +12,5 @@ mobile device. This helps the user in the following ways:
 * Shows activities, services, receivers, providers and instrumentation, 
   and their export and permission status
 
- * Switches to Manifest Explorer or the Setting's applications view of the 
-   application.
+* Switches to Manifest Explorer or the Setting's applications view of the 
+  application.
