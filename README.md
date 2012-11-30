@@ -1,4 +1,4 @@
-package-play
+Package Play
 ============
 
 Package Play is a tool that can be used on any device using the Google Android 
@@ -12,5 +12,5 @@ mobile device. This helps the user in the following ways:
 * Shows activities, services, receivers, providers and instrumentation, 
   and their export and permission status
 
-* Switches to Manifest Explorer or the Setting's applications view of the 
+* Switches to Manifest Explorer or the Settings application's view of the 
   application.
